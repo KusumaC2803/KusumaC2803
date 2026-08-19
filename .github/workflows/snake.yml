@@ -27,5 +27,5 @@ jobs:
       - name: Commit generated files
         uses: EndBug/add-and-commit@v9
         with:
-          add: "output/"
+          add: output/
           message: "chore: update contribution snake"
