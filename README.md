@@ -92,13 +92,17 @@ A task management application demonstrating component-based React development, s
 
 <div align="center">
 
-<img src="./output/github-contribution-grid-snake.svg" alt="GitHub Contribution Snake">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./output/github-contribution-grid-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./output/github-contribution-grid-snake.svg">
+  <img alt="GitHub contribution snake" src="./output/github-contribution-grid-snake.svg">
+</picture>
+
+<br>
+
+<i>Consistency in building, learning and shipping.</i>
 
 </div>
-
-<p align="center">
-  <i>Consistency in building, learning and shipping.</i>
-</p>
 ---
 
 ## 🤝 Let's Connect
