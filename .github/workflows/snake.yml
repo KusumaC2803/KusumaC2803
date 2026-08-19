@@ -24,10 +24,32 @@ jobs:
             output/github-contribution-grid-snake.svg
             output/github-contribution-grid-snake-dark.svg?palette=github-dark
 
-      - name: Commit and push snake
+      - name: Upload snake files
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add output/
-          git diff --cached --quiet || git commit -m "chore: update contribution snake"
-          git push
+          for file in output/github-contribution-grid-snake.svg output/github-contribution-grid-snake-dark.svg; do
+            filename=$(basename "$file")
+            content=$(base64 -w 0 "$file")
+
+            sha=$(gh api \
+              "repos/${GITHUB_REPOSITORY}/contents/output/${filename}" \
+              --jq '.sha' 2>/dev/null || true)
+
+            if [ -n "$sha" ]; then
+              gh api \
+                --method PUT \
+                "repos/${GITHUB_REPOSITORY}/contents/output/${filename}" \
+                -f message="chore: update contribution snake" \
+                -f content="$content" \
+                -f sha="$sha" \
+                -f branch="main"
+            else
+              gh api \
+                --method PUT \
+                "repos/${GITHUB_REPOSITORY}/contents/output/${filename}" \
+                -f message="chore: add contribution snake" \
+                -f content="$content" \
+                -f branch="main"
+            fi
+          done
