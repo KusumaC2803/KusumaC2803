@@ -88,10 +88,17 @@ A task management application demonstrating component-based React development, s
 
 ---
 
-## 📈 GitHub Activity
+## 📊 Contribution Activity
 
-I actively use GitHub to build, test, document and improve software projects while continuously expanding my engineering skills.
+<div align="center">
 
+<img src="./output/github-contribution-grid-snake.svg" alt="GitHub Contribution Snake">
+
+</div>
+
+<p align="center">
+  <i>Consistency in building, learning and shipping.</i>
+</p>
 ---
 
 ## 🤝 Let's Connect
@@ -103,5 +110,3 @@ I actively use GitHub to build, test, document and improve software projects whi
 I'm open to opportunities in **Software Engineering, Backend Development, DevOps and Data Analytics**.
 
 ---
-
-⭐ *Building projects. Solving problems. Learning continuously.*
